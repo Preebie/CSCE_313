@@ -1,0 +1,54 @@
+{
+    "tests": [
+      {
+        "name": "URL without a path",
+        "setup": "make",
+        "run": "./client http://www.w3.org experiment; wget http://www.w3.org -O control; diff experiment control",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 10,
+        "points": 20
+      },
+      {
+        "name": "URL with a path",
+        "setup": "make",
+        "run": "./client http://www.w3.org/Protocols/HTTP/1.0/spec.html experiment; wget http://www.w3.org/Protocols/HTTP/1.0/spec.html -O control; diff experiment control",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 10,
+        "points": 20
+      },
+      {
+        "name": "URL with 302",
+        "setup": "make",
+        "run": "./client http://w3.org experiment; wget http://w3.org -O control; diff experiment control",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 10,
+        "points": 20
+      },
+      {
+        "name": "URL with chunked transfer",
+        "setup": "make",
+        "run": "./client https://jigsaw.w3.org/HTTP/ChunkedScript experiment; wget https://jigsaw.w3.org/HTTP/ChunkedScript -O control; diff experiment control",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 10,
+        "points": 20
+      },
+      {
+        "name": "URL with 404 error",
+        "setup": "make",
+        "run": "./client https://www.w3.org/dfsafdsfdasafsd/; [ $? -eq 1 ]",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 10,
+        "points": 10
+      }
+    ]
+  }
